@@ -1,119 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moon - Free Earning Money</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOON</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #fffaf5;
-      color: #333;
-    }
-    header {
-      background: darkorange;
+      background: black;
       color: white;
-      text-align: center;
-      padding: 2rem 1rem;
+      overflow-x: hidden;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+
+    /* Landing Page */
+    #landing {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: black;
+      flex-direction: column;
     }
-    header p {
-      margin: 0.5rem 0;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.7rem 1.5rem;
-      background: white;
-      color: darkorange;
+
+    .moon-text {
+      font-size: 4rem;
       font-weight: bold;
-      border-radius: 5px;
-      text-decoration: none;
+      color: red;
+      animation: fall 2s ease forwards, glow 1.5s infinite alternate;
     }
-    section {
-      padding: 3rem 1rem;
-      max-width: 900px;
-      margin: auto;
+
+    @keyframes fall {
+      0% { transform: translateY(-200px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
     }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+
+    @keyframes glow {
+      0% { color: red; text-shadow: 0 0 10px red; }
+      100% { color: yellow; text-shadow: 0 0 20px yellow; }
     }
-    .feature {
-      background: #ffe4cc;
-      padding: 1.5rem;
-      border-radius: 8px;
+
+    /* Login Page */
+    #login {
+      display: none;
+      height: 100vh;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background: #222;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
       text-align: center;
     }
-    .faq {
-      background: #f9f9f9;
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
+
+    .login-box h2 {
       margin-bottom: 1rem;
     }
-    footer {
-      text-align: center;
-      background: #333;
+
+    .login-box input {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: orange;
       color: white;
-      padding: 1.5rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .login-box button:hover {
+      background: darkorange;
+    }
+
+    /* Home Page */
+    #home {
+      display: none;
+      padding: 1rem;
+    }
+
+    nav {
+      background: #222;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: orange;
+    }
+
+    nav .menu {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav .menu a:hover {
+      color: orange;
+    }
+
+    .coins {
       margin-top: 2rem;
+      text-align: center;
+    }
+
+    .coins h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .coins p {
+      font-size: 1.5rem;
+      color: yellow;
     }
   </style>
 </head>
 <body>
-  <!-- Hero Section -->
-  <header>
-    <h1>Moon</h1>
-    <p>Free Earning Money Platform</p>
-    <a href="#features" class="btn">Start Earning</a>
-  </header>
 
-  <!-- Features Section -->
-  <section id="features">
-    <h2 style="text-align:center; color:darkorange;">How You Can Earn</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>Online Tasks</h3>
-        <p>Complete simple tasks online and get rewarded instantly.</p>
-      </div>
-      <div class="feature">
-        <h3>Surveys</h3>
-        <p>Participate in surveys and earn money while sharing your opinion.</p>
-      </div>
-      <div class="feature">
-        <h3>Referrals</h3>
-        <p>Invite friends and earn bonuses every time they join and work.</p>
-      </div>
+  <!-- Landing Page -->
+  <section id="landing">
+    <div class="moon-text">MOON</div>
+  </section>
+
+  <!-- Login Page -->
+  <section id="login">
+    <div class="login-box">
+      <h2>Login / Signup</h2>
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+      <button onclick="openHome()">Login</button>
+      <button onclick="openHome()">Signup</button>
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section id="faq">
-    <h2 style="text-align:center; color:darkorange;">Frequently Asked Questions</h2>
-    <div class="faq">
-      <h4>💡 How do I start earning?</h4>
-      <p>Just sign up, choose a method, and complete tasks to earn rewards.</p>
-    </div>
-    <div class="faq">
-      <h4>💡 Is it really free?</h4>
-      <p>Yes! You don’t need to pay anything. Just invest your time and start earning.</p>
+  <!-- Home Page -->
+  <section id="home">
+    <nav>
+      <div class="logo">MOON</div>
+      <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">Category</a>
+        <a href="#">Withdraw</a>
+        <a href="#">Settings</a>
+        <a href="#">Support</a>
+      </div>
+    </nav>
+    <div class="coins">
+      <h2>Your Balance</h2>
+      <p>Coins: <span id="coinCount">1200</span></p>
+      <p>Value: $<span id="usdValue">24</span></p>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2 style="text-align:center; color:darkorange;">Contact Us</h2>
-    <p style="text-align:center;">📧 Email: (add later)<br>📞 Phone: (add later)</p>
-  </section>
+  <script>
+    // Show login after animation
+    setTimeout(() => {
+      document.getElementById("landing").style.display = "none";
+      document.getElementById("login").style.display = "flex";
+    }, 3000);
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Moon. All rights reserved.</p>
-  </footer>
+    // Open home page
+    function openHome() {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("home").style.display = "block";
+    }
+  </script>
+
 </body>
 </html>
